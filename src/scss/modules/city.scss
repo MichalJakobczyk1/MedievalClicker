@@ -1,0 +1,40 @@
+.section {
+  &--city {
+    grid-area: city;
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "castle content";
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 1fr;
+  }
+  &__h2 {
+    &--city {
+      grid-area: header;
+      text-align: left;
+      padding: 0 0 0 32px;
+    }
+  }
+  &__image {
+    &--city {
+      width: 150px;
+      height: 150px;
+      grid-area: castle;
+      margin: auto;
+    }
+  }
+  &__container {
+    &--city {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__paragraph {
+    &--city {
+      text-align: center;
+    }
+  }
+}

@@ -1,5 +1,11 @@
 @import "~normalize.css";
 @import "_variables";
+@import "modules/section.scss";
+@import "modules/clicker.scss";
+@import "modules/city.scss";
+@import "modules/units.scss";
+@import "modules/upgrades.scss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 body {
   background: #000;
@@ -8,4 +14,48 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.main {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "clicker units"
+    "clicker upgrades"
+    "city upgrades";
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 10vh 60vh 5vh 25vh;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  &__content {
+    font-size: 42px;
+    padding: 16px 0;
+    font-weight: 500;
+    color: yellow;
+  }
+}
+
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+h1,
+h2,
+h3 {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }

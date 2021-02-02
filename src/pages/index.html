@@ -35,7 +35,7 @@
       <h3 class="section__h3">Gold</h3>
     </section>
     <section class="section section--city">
-      <h2 class="section__h2">Your City</h2>
+      <h2 class="section__h2 section__h2--city">Your City</h2>
       <img class="section__image section__image--city" src="../assets/img/cityLv1.svg" alt="" />
       <div class="section__container section__container--city">
         <h3 class="section__h3">Your Military Power</h3>
@@ -43,15 +43,16 @@
         <button class="section__button section__button--upgrade">
           Upgrade City to Lv. 2
         </button>
-        <p class="section__paragraph">
-          Required: 1000 Gold 100 Military Power
+        <p class="section__paragraph section__paragraph--city">
+          Required: </br>1000 Gold 100 Military Power
         </p>
       </div>
     </section>
     <section class="section section--units">
       <h2 class="section__h2">Your Units</h2>
+      <div class="section__container section__container--article">
       <article class="section__article">
-        <h3 class="section__h3">Peasants</h3>
+        <h3 class="section__h3 section__h3--units">Peasants</h3>
         <img class="section__image section__image--units" src="../assets/img/peasant.svg" alt="" />
         <p class="section__paragraph counter counter--peasant">Quantity: 0</p>
         <button class="section__button section__button--peasant">Buy</button>
@@ -59,11 +60,11 @@
         <p class="section__paragraph section__paragraph--description">
           Peasants are main money source in your empire, they provide food and
           utilities for your army, but altough their high gold income they are
-          really weak fighters. Gold per second: 0.5 Military Power: 1;
+          really weak fighters. <span class="section__paragraph section__paragraph--special">Gold per second: 0.5 Military Power: 1</span>
         </p>
       </article>
       <article class="section__article">
-        <h3 class="section__h3">Mercenearies</h3>
+        <h3 class="section__h3 section__h3--units">Mercenearies</h3>
         <img class="section__image section__image--units" src="../assets/img/mercenary.svg" alt="" />
         <p class="section__paragraph counter counter--merceneary">
           Quantity: 0
@@ -76,12 +77,12 @@
         </p>
         <p class="section__paragraph section__paragraph--description">
           Mercenearies are expensive units with high military power, but they
-          earn much less gold on their journeys than you spend to hire them.
-          Gold per second: 2 Military Power: 10
+          earn much less gold on their journeys than you spend to hire them.<span class="section__paragraph section__paragraph--special"> Gold per second: 2 Military Power: 10</span>
+         
         </p>
       </article>
       <article class="section__article">
-        <h3 class="section__h3">Priests</h3>
+        <h3 class="section__h3 section__h3--units">Priests</h3>
         <img class="section__image section__image--units" src="../assets/img/priest.svg" alt="" />
         <p class="section__paragraph counter counter--priest">Quantity: 0</p>
         <button class="section__button section__button--priest">Buy</button>
@@ -89,11 +90,11 @@
         <p class="section__paragraph section__paragraph--description">
           Priest are very respected in your empire, they earn a lot of gold
           from people donations on church, but they are not that relevant in
-          the times of war. Gold per second: 10 Military Power: 2
+          the times of war.<span class="section__paragraph section__paragraph--special">Gold per second: 10 Military Power: 2</span> 
         </p>
       </article>
       <article class="section__article">
-        <h3 class="section__h3">Knights</h3>
+        <h3 class="section__h3 section__h3--units">Knights</h3>
         <img class="section__image section__image--units" src="../assets/img/knight.svg" alt="" />
         <p class="section__paragraph counter counter--knight">Quantity: 0</p>
         <button class="section__button section__button--knight">Buy</button>
@@ -101,12 +102,12 @@
         <p class="section__paragraph section__paragraph--description">
           Knights are expensive, powerful warriors, they are excellent in
           battle and offer some of their payment for your empire as well as
-          the treasures earned during wars. Gold per second: 5 Military Power:
-          25 </br> There is a small chance for extra 100 gold every 10 seconds
+          the treasures earned during wars.<span class="section__paragraph section__paragraph--special">Gold per second: 5 </br> Military Power:
+            25 </br> There is a small chance for extra 100 gold every 10 seconds</span> 
         </p>
       </article>
       <article class="section__article">
-        <h3 class="section__h3">Paladins</h3>
+        <h3 class="section__h3 section__h3--units">Paladins</h3>
         <img class="section__image section__image--units" src="../assets/img/paladin.svg" alt="" />
         <p class="section__paragraph counter counter--paladin">Quantity: 0</p>
         <button class="section__button section__button--paladin">Buy</button>
@@ -114,23 +115,26 @@
         <p class="section__paragraph section__paragraph--description">Those holy warriors rend through your enemies with
           the power of god on their swords, they are most respected units in your empires, so people are most likely to
           pay for their holy crusade.
-          Gold per second: 25 Military Power: 30 </br> Your peasants earn +0.1 gold per second for each paladin you have
+          <span class="section__paragraph section__paragraph--special"> Gold per second: 25 </br> Military Power: 30 </br> Your peasants earn +0.1 gold per second for each paladin you have </span>
         </p>
       </article>
       <article class="section__article">
-        <h3 class="section__h3">Dragons</h3>
+        <h3 class="section__h3 section__h3--units">Dragons</h3>
         <img class="section__image section__image--units" src="../assets/img/dragon.svg" alt="" />
         <p class="section__paragraph counter counter--dragont">Quantity: 0</p>
         <button class="section__button section__button--dragon">Buy</button>
         <p class="section__paragraph price price--paladin">Price: 3000 Gold</p>
-        <p class="section__paragraph section__paragraph--description">Dragons are the greates blessing from your God
+        <p class="section__paragraph section__paragraph--description">Dragons are the greatest blessing from your God
           Imperator, they outclass every single unit in battle, also they will share their knowledge and treasures with
-          anyone that worships them Gold per second: 40 Military Power: 100 </br>Your priest are battle priests now. They earn +1 military power for each dragon</p>
+          anyone that worships them <span class="section__paragraph section__paragraph--special">Gold per second: 40</br>  Military Power: 100 </br>Your priest are battle priests now. They earn +1 military power for each dragon</span></p>
       </article>
+      </div>
     </section>
     <section class="section section--upgrades">
       <h2 class="section__h2">Upgrades</h2>
       <div class="section__container section__container--upgrades">
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
         <div class="section__tile"></div>
         <div class="section__tile"></div>
         <div class="section__tile"></div>

@@ -1,0 +1,19 @@
+.section {
+  &--upgrades {
+    grid-area: upgrades;
+  }
+  &__container {
+    &--upgrades {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+  &__tile {
+    border: 2px solid #fff;
+    width: 80px;
+    height: 80px;
+    padding: 4px;
+    margin: 2px;
+  }
+}
