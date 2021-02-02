@@ -1,122 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WTF: Webpack starter kit</title>
-    <meta name="description" content="Your project description" />
-    <!-- Title -->
-    <meta property="og:title" content="" />
-    <!-- OPTIONAL description. 2-4 sentences. -->
-    <meta property="og:description" content="" />
-    <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
-    <meta property="og:url" content="" />
-    <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
-    <meta
-      property="og:image"
-      content="https://maciejkorsan.com/wtf-gulp-starter/assets/img/cover.png"
-    />
 
-    <!-- uncomment the line below to enable PWA  -->
-    <!-- <link rel="manifest" href="manifest.json" /> -->
-  </head>
-  <body>
-    <main class="main">
-      <header class="header"><h1 class="header__content"></h1></header>
-      <section class="section section--clicker">
-        <h2 class="section__h2"></h2>
-        <div class="section__coin">
-          <button class="section__button section__button--clicker"></button>
-        </div>
-        <p class="section__paragraph"></p>
-        <h3 class="section__h3"></h3>
-      </section>
-      <section class="section section--city">
-        <h2 class="section__h2"></h2>
-        <img class="section__image section__image--city" />
-        <div class="section__container section__container--city">
-          <h3 class="section__h3"></h3>
-          <p class="section__paragraph"></p>
-        </div>
-      </section>
-      <section class="section section--units">
-        <h2 class="section__h2"></h2>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--peasant"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--merceneary"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--priest"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--knight"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--paladin"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-        <article class="section__article">
-          <h3 class="section__h3"></h3>
-          <img class="section__image section__image--units" />
-          <p class="section__paragraph"></p>
-          <button class="section__button section__button--dragon"></button>
-          <p class="section__paragraph"></p>
-          <p class="section__paragraph"></p>
-        </article>
-      </section>
-      <section class="section section--upgrades">
-        <h2 class="section__h2"></h2>
-        <div class="section__container section__container--upgrades">
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-          <div class="section__tile"></div>
-        </div>
-      </section>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WTF: Webpack starter kit</title>
+  <meta name="description" content="Your project description" />
+  <!-- Title -->
+  <meta property="og:title" content="" />
+  <!-- OPTIONAL description. 2-4 sentences. -->
+  <meta property="og:description" content="" />
+  <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
+  <meta property="og:url" content="" />
+  <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
+  <meta property="og:image" content="https://maciejkorsan.com/wtf-gulp-starter/assets/img/cover.png" />
+
+  <!-- uncomment the line below to enable PWA  -->
+  <!-- <link rel="manifest" href="manifest.json" /> -->
+</head>
+
+<body>
+  <main class="main">
+    <header class="header">
+      <h1 class="header__content">Welcome to medieval clicker!</h1>
+    </header>
+    <section class="section section--clicker">
+      <h2 class="section__h2">Gold Generator</h2>
+      <div class="section__coin">
+        <button class="section__button section__button--clicker">
+          Click!
+        </button>
+      </div>
+      <p class="section__paragraph counter counter--gold">0</p>
+      <h3 class="section__h3">Gold</h3>
+    </section>
+    <section class="section section--city">
+      <h2 class="section__h2">Your City</h2>
+      <img class="section__image section__image--city" src="../assets/img/cityLv1.svg" alt="" />
+      <div class="section__container section__container--city">
+        <h3 class="section__h3">Your Military Power</h3>
+        <p class="section__paragraph counter counter--power">0</p>
+        <button class="section__button section__button--upgrade">
+          Upgrade City to Lv. 2
+        </button>
+        <p class="section__paragraph">
+          Required: 1000 Gold 100 Military Power
+        </p>
+      </div>
+    </section>
+    <section class="section section--units">
+      <h2 class="section__h2">Your Units</h2>
+      <article class="section__article">
+        <h3 class="section__h3">Peasants</h3>
+        <img class="section__image section__image--units" src="../assets/img/peasant.svg" alt="" />
+        <p class="section__paragraph counter counter--peasant">Quantity: 0</p>
+        <button class="section__button section__button--peasant">Buy</button>
+        <p class="section__paragraph price price--peasant">Price: 10 Gold</p>
+        <p class="section__paragraph section__paragraph--description">
+          Peasants are main money source in your empire, they provide food and
+          utilities for your army, but altough their high gold income they are
+          really weak fighters. Gold per second: 0.5 Military Power: 1;
+        </p>
+      </article>
+      <article class="section__article">
+        <h3 class="section__h3">Mercenearies</h3>
+        <img class="section__image section__image--units" src="../assets/img/mercenary.svg" alt="" />
+        <p class="section__paragraph counter counter--merceneary">
+          Quantity: 0
+        </p>
+        <button class="section__button section__button--merceneary">
+          Buy
+        </button>
+        <p class="section__paragraph price price--merceneary">
+          Price: 100 Gold
+        </p>
+        <p class="section__paragraph section__paragraph--description">
+          Mercenearies are expensive units with high military power, but they
+          earn much less gold on their journeys than you spend to hire them.
+          Gold per second: 2 Military Power: 10
+        </p>
+      </article>
+      <article class="section__article">
+        <h3 class="section__h3">Priests</h3>
+        <img class="section__image section__image--units" src="../assets/img/priest.svg" alt="" />
+        <p class="section__paragraph counter counter--priest">Quantity: 0</p>
+        <button class="section__button section__button--priest">Buy</button>
+        <p class="section__paragraph price price--priest">Price: 125 Gold</p>
+        <p class="section__paragraph section__paragraph--description">
+          Priest are very respected in your empire, they earn a lot of gold
+          from people donations on church, but they are not that relevant in
+          the times of war. Gold per second: 10 Military Power: 2
+        </p>
+      </article>
+      <article class="section__article">
+        <h3 class="section__h3">Knights</h3>
+        <img class="section__image section__image--units" src="../assets/img/knight.svg" alt="" />
+        <p class="section__paragraph counter counter--knight">Quantity: 0</p>
+        <button class="section__button section__button--knight">Buy</button>
+        <p class="section__paragraph price price--knight">Price: 300 Gold</p>
+        <p class="section__paragraph section__paragraph--description">
+          Knights are expensive, powerful warriors, they are excellent in
+          battle and offer some of their payment for your empire as well as
+          the treasures earned during wars. Gold per second: 5 Military Power:
+          25 </br> There is a small chance for extra 100 gold every 10 seconds
+        </p>
+      </article>
+      <article class="section__article">
+        <h3 class="section__h3">Paladins</h3>
+        <img class="section__image section__image--units" src="../assets/img/paladin.svg" alt="" />
+        <p class="section__paragraph counter counter--paladin">Quantity: 0</p>
+        <button class="section__button section__button--paladin">Buy</button>
+        <p class="section__paragraph price price--paladin">Price: 1000 Gold</p>
+        <p class="section__paragraph section__paragraph--description">Those holy warriors rend through your enemies with
+          the power of god on their swords, they are most respected units in your empires, so people are most likely to
+          pay for their holy crusade.
+          Gold per second: 25 Military Power: 30 </br> Your peasants earn +0.1 gold per second for each paladin you have
+        </p>
+      </article>
+      <article class="section__article">
+        <h3 class="section__h3">Dragons</h3>
+        <img class="section__image section__image--units" src="../assets/img/dragon.svg" alt="" />
+        <p class="section__paragraph counter counter--dragont">Quantity: 0</p>
+        <button class="section__button section__button--dragon">Buy</button>
+        <p class="section__paragraph price price--paladin">Price: 3000 Gold</p>
+        <p class="section__paragraph section__paragraph--description">Dragons are the greates blessing from your God
+          Imperator, they outclass every single unit in battle, also they will share their knowledge and treasures with
+          anyone that worships them Gold per second: 40 Military Power: 100 </br>Your priest are battle priests now. They earn +1 military power for each dragon</p>
+      </article>
+    </section>
+    <section class="section section--upgrades">
+      <h2 class="section__h2">Upgrades</h2>
+      <div class="section__container section__container--upgrades">
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+        <div class="section__tile"></div>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>
