@@ -26,10 +26,10 @@
     </header>
     <section class="section section--clicker">
       <h2 class="section__h2">Gold Generator</h2>
-      <div class="section__coin">
-        <button class="section__button section__button--clicker">
-          Click!
-        </button>
+      <button class="section__button section__button--clicker">
+        Click!
+      </button>
+      <div class="section__coin section__coin--js">
       </div>
       <p class="section__paragraph counter counter--gold">0</p>
       <h3 class="section__h3">Gold</h3>
@@ -39,7 +39,7 @@
       <img class="section__image section__image--city" src="../assets/img/cityLv1.svg" alt="" />
       <div class="section__container section__container--city">
         <h3 class="section__h3">Your Military Power</h3>
-        <p class="section__paragraph counter counter--power">0</p>
+        <p class="section__paragraph counter--power">0</p>
         <button class="section__button section__button--upgrade">
           Upgrade City to Lv. 2
         </button>
@@ -54,20 +54,20 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Peasants</h3>
         <img class="section__image section__image--units" src="../assets/img/peasant.svg" alt="" />
-        <p class="section__paragraph counter counter--peasant">Quantity: 0</p>
+        <p class="section__paragraph">Quantity: <span class="counter--peasant">0</span></p>
         <button class="section__button section__button--peasant">Buy</button>
-        <p class="section__paragraph price price--peasant">Price: 10 Gold</p>
+        <p class="section__paragraph">Price: <span class="price--peasant">10</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">
           Peasants are main money source in your empire, they provide food and
           utilities for your army, but altough their high gold income they are
-          really weak fighters. <span class="section__paragraph section__paragraph--special">Gold per second: 0.5 Military Power: 1</span>
+          really weak fighters. <span class="section__paragraph section__paragraph--special">Gold per second: 1 Military Power: 1</span>
         </p>
       </article>
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Mercenearies</h3>
         <img class="section__image section__image--units" src="../assets/img/mercenary.svg" alt="" />
-        <p class="section__paragraph counter counter--merceneary">
-          Quantity: 0
+        <p class="section__paragraph">
+          Quantity: <span class="counter--merceneary">0</span>
         </p>
         <button class="section__button section__button--merceneary">
           Buy
@@ -84,9 +84,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Priests</h3>
         <img class="section__image section__image--units" src="../assets/img/priest.svg" alt="" />
-        <p class="section__paragraph counter counter--priest">Quantity: 0</p>
+        <p class="section__paragraph">Quantity: <span class="counter--priest">0</span></p>
         <button class="section__button section__button--priest">Buy</button>
-        <p class="section__paragraph price price--priest">Price: 125 Gold</p>
+        <p class="section__paragraph price price--priest">Price: 100 Gold</p>
         <p class="section__paragraph section__paragraph--description">
           Priest are very respected in your empire, they earn a lot of gold
           from people donations on church, but they are not that relevant in
@@ -96,7 +96,7 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Knights</h3>
         <img class="section__image section__image--units" src="../assets/img/knight.svg" alt="" />
-        <p class="section__paragraph counter counter--knight">Quantity: 0</p>
+        <p class="section__paragraph">Quantity: <span class="counter--knight">0</span></p>
         <button class="section__button section__button--knight">Buy</button>
         <p class="section__paragraph price price--knight">Price: 300 Gold</p>
         <p class="section__paragraph section__paragraph--description">
@@ -109,19 +109,19 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Paladins</h3>
         <img class="section__image section__image--units" src="../assets/img/paladin.svg" alt="" />
-        <p class="section__paragraph counter counter--paladin">Quantity: 0</p>
+        <p class="section__paragraph">Quantity: <span class="counter--paladin">0</span></p>
         <button class="section__button section__button--paladin">Buy</button>
         <p class="section__paragraph price price--paladin">Price: 1000 Gold</p>
         <p class="section__paragraph section__paragraph--description">Those holy warriors rend through your enemies with
           the power of god on their swords, they are most respected units in your empires, so people are most likely to
           pay for their holy crusade.
-          <span class="section__paragraph section__paragraph--special"> Gold per second: 25 </br> Military Power: 30 </br> Your peasants earn +0.1 gold per second for each paladin you have </span>
+          <span class="section__paragraph section__paragraph--special"> Gold per second: 25 </br> Military Power: 30 </br> Your peasants earn +2 gold per second for each 5 paladins you have </span>
         </p>
       </article>
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Dragons</h3>
         <img class="section__image section__image--units" src="../assets/img/dragon.svg" alt="" />
-        <p class="section__paragraph counter counter--dragont">Quantity: 0</p>
+        <p class="section__paragraph">Quantity: <span class="counter--dragon">0</span></p>
         <button class="section__button section__button--dragon">Buy</button>
         <p class="section__paragraph price price--paladin">Price: 3000 Gold</p>
         <p class="section__paragraph section__paragraph--description">Dragons are the greatest blessing from your God
