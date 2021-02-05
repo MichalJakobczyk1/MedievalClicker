@@ -18,4 +18,24 @@
   &__paragraph {
     font-size: 18px;
   }
+  &__button {
+    &--buy {
+      outline: var(--button-color);
+      padding: 4px 12px;
+      width: max-content;
+      background: transparent;
+      border-radius: 5px;
+      color: var(--button-color);
+      border: var(--button-border);
+    }
+    &--available {
+      outline: var(--button-color);
+      padding: 4px 12px;
+      width: max-content;
+      background: transparent;
+      border-radius: 5px;
+      color: var(--button-color-available);
+      border: var(--button-border-available);
+    }
+  }
 }

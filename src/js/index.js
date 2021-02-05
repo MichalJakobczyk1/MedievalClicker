@@ -42,8 +42,6 @@ const goldCounterButton = document.querySelector(".section__button--clicker");
 const goldCounter = document.querySelector(".counter--gold");
 const coin = document.querySelector(".section__coin--js");
 
-const militaryPower = document.querySelector(".counter--power");
-
 // liczniki jednostek
 const peasantsQuantity = document.querySelector(".counter--peasant");
 const merceneariesQuantity = document.querySelector(".counter--merceneary");
@@ -63,6 +61,19 @@ const paladinsButton = document.querySelector(".section__button--paladin");
 const dragonsButton = document.querySelector(".section__button--dragon");
 
 const peasantsPrice = document.querySelector(".price--peasant");
+
+// miasto
+const cityButton = document.querySelector(".section__button--city");
+const cityPrice = document.querySelector(".price--city");
+const cityPower = document.querySelector(".power--city");
+const militaryPower = document.querySelector(".counter--power");
+
+let cityPriceCounter = 1000;
+let cityPowerCounter = 100;
+
+cityButton.innerHTML = " Upgrade City to Lv. 2";
+cityPrice.innerHTML = cityPriceCounter;
+cityPower.innerHTML = cityPowerCounter;
 
 // liczniki złota i siły
 let gold = 0;
@@ -85,19 +96,26 @@ function goldPerSecond() {
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
   colorChange(peasantsPriceCounter, peasantsButton);
+  cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
 }
 
 // zmiana koloru przycisku
 function colorChange(priceCounter, button) {
   if (gold >= priceCounter) {
-    button.classList.remove("section__button--units");
+    button.classList.remove("section__button--buy");
     button.classList.add("section__button--available");
   }
 }
 function colorChangeReverse(priceCounter, button) {
   if (gold <= priceCounter) {
     button.classList.remove("section__button--available");
-    button.classList.add("section__button--units");
+    button.classList.add("section__button--buy");
+  }
+}
+function cityColorChange(priceCounter, powerCounter, button) {
+  if (gold >= priceCounter && military >= powerCounter) {
+    button.classList.remove("section__button--buy");
+    button.classList.add("section__button--available");
   }
 }
 
@@ -107,6 +125,7 @@ goldCounterButton.addEventListener("click", () => {
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
   colorChange(peasantsPriceCounter, peasantsButton);
+  cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
 });
 
 setInterval(goldPerSecond, 1000);
@@ -131,5 +150,63 @@ peasantsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeReverse(peasantsPriceCounter, peasantsButton);
+    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+  }
+});
+
+// ulepszanie miasta
+let templateCityImg = `<img class="section__image section__image--city" src="cityLv1.svg" alt="" />`;
+const cityImg = document.querySelector(".section__container--image");
+
+cityImg.innerHTML = templateCityImg;
+
+cityButton.addEventListener("click", () => {
+  if ((cityButton.innerHTML = "Upgrade City to Lv. 2")) {
+    // zmiana tesktu i obrazka
+    cityButton.innerHTML = "Upgrade City to Lv. 3";
+    templateCityImg = `<img class="section__image section__image--city" src="cityLv2.svg" alt="" />`;
+    cityImg.innerHTML = templateCityImg;
+    // odejmowanie złota
+    gold -= cityPriceCounter;
+    goldCounter.innerHTML = gold;
+    // zmiana ceny miasta
+    cityPriceCounter = 5000;
+    cityPowerCounter = 300;
+    cityPrice.innerHTML = cityPriceCounter;
+    cityPower.innerHTML = cityPowerCounter;
+  } else if ((cityButton.innerHTML = "Upgrade City to Lv. 3")) {
+    // zmiana tesktu i obrazka
+    cityButton.innerHTML = "Upgrade City to Lv. 4";
+    templateCityImg = `<img class="section__image section__image--city" src="cityLv3.svg" alt="" />`;
+    cityImg.innerHTML = templateCityImg;
+    // odejmowanie złota
+    gold -= cityPriceCounter;
+    goldCounter.innerHTML = gold;
+    // zmiana ceny miasta
+    cityPriceCounter = 15000;
+    cityPowerCounter = 700;
+    cityPrice.innerHTML = cityPriceCounter;
+    cityPower.innerHTML = cityPowerCounter;
+  } else if ((cityButton.innerHTML = "Upgrade City to Lv. 4")) {
+    // zmiana tesktu i obrazka
+    cityButton.innerHTML = "Upgrade City to Lv. 5";
+    templateCityImg = `<img class="section__image section__image--city" src="cityLv4.svg" alt="" />`;
+    cityImg.innerHTML = templateCityImg;
+    // odejmowanie złota
+    gold -= cityPriceCounter;
+    goldCounter.innerHTML = gold;
+    // zmiana ceny miasta
+    cityPriceCounter = 100000;
+    cityPowerCounter = 2500;
+    cityPrice.innerHTML = cityPriceCounter;
+    cityPower.innerHTML = cityPowerCounter;
+  } else if ((cityButton.innerHTML = "Upgrade City to Lv. 5")) {
+    // zmiana tesktu i obrazka
+    cityButton.innerHTML = "City Fully upgraded";
+    templateCityImg = `<img class="section__image section__image--city" src="cityLv5.svg" alt="" />`;
+    cityImg.innerHTML = templateCityImg;
+    // zmiana ceny miasta
+    const cityFinalLevel = document.querySelector(".section__paragraph--city");
+    cityFinalLevel.innerHTML = "No Upgrades Left";
   }
 });

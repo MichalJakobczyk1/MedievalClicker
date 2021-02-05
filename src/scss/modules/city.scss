@@ -24,6 +24,11 @@
     }
   }
   &__container {
+    &--image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     &--city {
       grid-area: content;
       display: flex;
