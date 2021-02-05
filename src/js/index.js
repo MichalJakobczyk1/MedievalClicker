@@ -1,12 +1,41 @@
 import "../scss/main.scss";
+// import {
+//   goldCounterButton,
+//   goldCounter,
+//   coin,
+//   militaryPower,
+//   peasantsQuantity,
+//   merceneariesQuantity,
+//   priestsQuantity,
+//   knightsQuantity,
+//   paladinsQuantity,
+//   dragonsQuantity,
+//   peasantsButton,
+//   merceneariesButton,
+//   priestsButton,
+//   knightsButton,
+//   paladinsButton,
+//   dragonsButton,
+//   peasantsPrice,
+//   gold,
+//   goldPerSecond,
+//   military,
+//   peasants,
+//   mercenearies,
+//   priests,
+//   knights,
+//   paladins,
+//   dragons,
+//   peasantsPriceCounter,
+//   colorChange,
+//   colorChangeReverse,
+// } from "./modules/functions&variables";
 
 // uncomment the lines below to enable PWA
 // import {registerSW} from './pwa.js';
 // registerSW();
 
 /* place your code below */
-
-console.log("HELLO 🚀");
 
 // generator złota
 const goldCounterButton = document.querySelector(".section__button--clicker");
@@ -50,17 +79,36 @@ let dragons = 0;
 // liczniki ceny jednostek
 let peasantsPriceCounter = 10;
 
-// generator złota na kliknięcie
-goldCounterButton.addEventListener("click", () => {
-  gold++;
-  goldCounter.innerHTML = gold;
-});
-
 // generowanie złota co sekundę
 function goldPerSecond() {
   gold += peasants * 1;
   goldCounter.innerHTML = gold;
+  // zmiana koloru przycisku
+  colorChange(peasantsPriceCounter, peasantsButton);
 }
+
+// zmiana koloru przycisku
+function colorChange(priceCounter, button) {
+  if (gold >= priceCounter) {
+    button.classList.remove("section__button--units");
+    button.classList.add("section__button--available");
+  }
+}
+function colorChangeReverse(priceCounter, button) {
+  if (gold <= priceCounter) {
+    button.classList.remove("section__button--available");
+    button.classList.add("section__button--units");
+  }
+}
+
+// generator złota na kliknięcie
+goldCounterButton.addEventListener("click", () => {
+  gold++;
+  goldCounter.innerHTML = gold;
+  // zmiana koloru przycisku
+  colorChange(peasantsPriceCounter, peasantsButton);
+});
+
 setInterval(goldPerSecond, 1000);
 goldPerSecond();
 
@@ -81,5 +129,7 @@ peasantsButton.addEventListener("click", () => {
     // dodawanie siły
     military += 1;
     militaryPower.innerHTML = military;
+    // zmiana koloru przycisku
+    colorChangeReverse(peasantsPriceCounter, peasantsButton);
   }
 });

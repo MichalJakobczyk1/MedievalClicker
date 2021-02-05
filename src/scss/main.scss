@@ -8,8 +8,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 body {
-  background: #000;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--main-content-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@ body {
     font-size: 42px;
     padding: 16px 0;
     font-weight: 500;
-    color: yellow;
+    color: var(--secondary-content-color);
   }
 }
 

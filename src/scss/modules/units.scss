@@ -25,6 +25,26 @@
       padding: 8px 0;
     }
   }
+  &__button {
+    &--units {
+      outline: var(--button-color);
+      padding: 4px;
+      width: 50px;
+      background: transparent;
+      border-radius: 5px;
+      color: var(--button-color);
+      border: var(--button-border);
+    }
+    &--available {
+      outline: var(--button-color);
+      padding: 4px;
+      width: 50px;
+      background: transparent;
+      border-radius: 5px;
+      color: var(--button-color-available);
+      border: var(--button-border-available);
+    }
+  }
   &__paragraph {
     &--description {
       text-align: center;

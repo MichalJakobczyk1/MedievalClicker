@@ -8,12 +8,12 @@
     text-align: center;
     padding: 8px 0;
     font-weight: 500;
-    color: yellow;
+    color: var(--secondary-content-color);
   }
   &__h3 {
     font-size: 24px;
     font-weight: normal;
-    color: yellow;
+    color: var(--secondary-content-color);
   }
   &__paragraph {
     font-size: 18px;
