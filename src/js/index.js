@@ -1,35 +1,9 @@
 import "../scss/main.scss";
-// import {
-//   goldCounterButton,
-//   goldCounter,
-//   coin,
-//   militaryPower,
-//   peasantsQuantity,
-//   merceneariesQuantity,
-//   priestsQuantity,
-//   knightsQuantity,
-//   paladinsQuantity,
-//   dragonsQuantity,
-//   peasantsButton,
-//   merceneariesButton,
-//   priestsButton,
-//   knightsButton,
-//   paladinsButton,
-//   dragonsButton,
-//   peasantsPrice,
-//   gold,
-//   goldPerSecond,
-//   military,
-//   peasants,
-//   mercenearies,
-//   priests,
-//   knights,
-//   paladins,
-//   dragons,
-//   peasantsPriceCounter,
-//   colorChange,
-//   colorChangeReverse,
-// } from "./modules/functions&variables";
+import {
+  colorChangeAll,
+  colorChangeAllActive,
+  cityColorChangeReverse,
+} from "./modules/functions";
 
 // uncomment the lines below to enable PWA
 // import {registerSW} from './pwa.js';
@@ -51,14 +25,18 @@ const paladinsQuantity = document.querySelector(".counter--paladin");
 const dragonsQuantity = document.querySelector(".counter--dragon");
 
 // przyciski kupowania jednostek
-const peasantsButton = document.querySelector(".section__button--peasant");
-const merceneariesButton = document.querySelector(
+export const peasantsButton = document.querySelector(
+  ".section__button--peasant"
+);
+export const merceneariesButton = document.querySelector(
   ".section__button--merceneary"
 );
-const priestsButton = document.querySelector(".section__button--priest");
-const knightsButton = document.querySelector(".section__button--knight");
-const paladinsButton = document.querySelector(".section__button--paladin");
-const dragonsButton = document.querySelector(".section__button--dragon");
+export const priestsButton = document.querySelector(".section__button--priest");
+export const knightsButton = document.querySelector(".section__button--knight");
+export const paladinsButton = document.querySelector(
+  ".section__button--paladin"
+);
+export const dragonsButton = document.querySelector(".section__button--dragon");
 
 // ceny jednostek
 const peasantsPrice = document.querySelector(".price--peasant");
@@ -69,21 +47,24 @@ const paladinsPrice = document.querySelector(".price--paladin");
 const dragonsPrice = document.querySelector(".price--dragons");
 
 // miasto
-const cityButton = document.querySelector(".section__button--city");
+export const cityButton = document.querySelector(".section__button--city");
 const cityPrice = document.querySelector(".price--city");
 const cityPower = document.querySelector(".power--city");
 const militaryPower = document.querySelector(".counter--power");
 
-let cityPriceCounter = 1000;
-let cityPowerCounter = 100;
+export let cityPriceCounter = 1000;
+export let cityPowerCounter = 100;
 
 cityButton.innerHTML = " Upgrade City to Lv. 2";
 cityPrice.innerHTML = cityPriceCounter;
 cityPower.innerHTML = cityPowerCounter;
 
 // liczniki złota i siły
-let gold = 0;
+export let gold = 0;
 let military = 0;
+const goldPerSecondContainer = document.querySelector(
+  ".counter--gold-per-second"
+);
 
 // liczniki stanu jednostek
 let peasants = 0;
@@ -94,38 +75,12 @@ let paladins = 0;
 let dragons = 0;
 
 // liczniki ceny jednostek
-let peasantsPriceCounter = 10;
-let merceneariesPriceCounter = 100;
-let priestsPriceCounter = 100;
-let knightsPriceCounter = 300;
-let paladinsPriceCounter = 1000;
-let dragonsPriceCounter = 3000;
-
-// zmiana koloru przycisku
-function colorChange(priceCounter, button) {
-  if (gold >= priceCounter) {
-    button.classList.remove("section__button--buy");
-    button.classList.add("section__button--available");
-  }
-}
-function colorChangeReverse(priceCounter, button) {
-  if (gold <= priceCounter) {
-    button.classList.remove("section__button--available");
-    button.classList.add("section__button--buy");
-  }
-}
-function cityColorChange(priceCounter, powerCounter, button) {
-  if (gold >= priceCounter && military >= powerCounter) {
-    button.classList.remove("section__button--buy");
-    button.classList.add("section__button--available");
-  }
-}
-function cityColorChangeReverse(priceCounter, powerCounter, button) {
-  if (gold <= priceCounter && military <= powerCounter) {
-    button.classList.remove("section__button--available");
-    button.classList.add("section__button--buy");
-  }
-}
+export let peasantsPriceCounter = 10;
+export let merceneariesPriceCounter = 100;
+export let priestsPriceCounter = 100;
+export let knightsPriceCounter = 300;
+export let paladinsPriceCounter = 1000;
+export let dragonsPriceCounter = 3000;
 
 // generowanie złota co sekundę
 function goldPerSecond() {
@@ -137,13 +92,7 @@ function goldPerSecond() {
   gold += dragons * 40;
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
-  colorChange(peasantsPriceCounter, peasantsButton);
-  colorChange(merceneariesPriceCounter, merceneariesButton);
-  colorChange(priestsPriceCounter, priestsButton);
-  colorChange(knightsPriceCounter, knightsButton);
-  colorChange(paladinsPriceCounter, paladinsButton);
-  colorChange(dragonsPriceCounter, dragonsButton);
-  cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+  colorChangeAllActive();
 }
 
 // generator złota na kliknięcie
@@ -151,13 +100,7 @@ goldCounterButton.addEventListener("click", () => {
   gold++;
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
-  colorChange(peasantsPriceCounter, peasantsButton);
-  colorChange(merceneariesPriceCounter, merceneariesButton);
-  colorChange(priestsPriceCounter, priestsButton);
-  colorChange(knightsPriceCounter, knightsButton);
-  colorChange(paladinsPriceCounter, paladinsButton);
-  colorChange(dragonsPriceCounter, dragonsButton);
-  cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+  colorChangeAllActive();
 });
 
 setInterval(goldPerSecond, 1000);
@@ -172,6 +115,15 @@ peasantsButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= peasantsPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     peasantsPriceCounter *= 1.15;
     peasantsPriceCounter = peasantsPriceCounter.toFixed(0);
@@ -181,13 +133,7 @@ peasantsButton.addEventListener("click", () => {
     military += 1;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -199,6 +145,15 @@ merceneariesButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= merceneariesPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     merceneariesPriceCounter *= 1.3;
     merceneariesPriceCounter = merceneariesPriceCounter.toFixed(0);
@@ -208,13 +163,7 @@ merceneariesButton.addEventListener("click", () => {
     military += 10;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -226,6 +175,15 @@ priestsButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= priestsPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     priestsPriceCounter *= 1.3;
     priestsPriceCounter = priestsPriceCounter.toFixed(0);
@@ -235,13 +193,7 @@ priestsButton.addEventListener("click", () => {
     military += 2;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -253,6 +205,15 @@ knightsButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= knightsPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     knightsPriceCounter *= 1.35;
     knightsPriceCounter = knightsPriceCounter.toFixed(0);
@@ -262,13 +223,7 @@ knightsButton.addEventListener("click", () => {
     military += 25;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -280,6 +235,15 @@ paladinsButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= paladinsPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     paladinsPriceCounter *= 1.45;
     paladinsPriceCounter = paladinsPriceCounter.toFixed(0);
@@ -289,13 +253,7 @@ paladinsButton.addEventListener("click", () => {
     military += 30;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -307,6 +265,15 @@ dragonsButton.addEventListener("click", () => {
     // odejmowanie złota
     gold -= dragonsPriceCounter;
     goldCounter.innerHTML = gold;
+    // aktualizacja licznika złota co sekundę
+    let goldPerSecondCounter =
+      peasants * 1 +
+      mercenearies * 2 +
+      priests * 10 +
+      knights * 5 +
+      paladins * 25 +
+      dragons * 40;
+    goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
     dragonsPriceCounter *= 1.55;
     dragonsPriceCounter = dragonsPriceCounter.toFixed(0);
@@ -316,13 +283,7 @@ dragonsButton.addEventListener("click", () => {
     military += 100;
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
-    colorChangeReverse(peasantsPriceCounter, peasantsButton);
-    colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
-    colorChangeReverse(priestsPriceCounter, priestsButton);
-    colorChangeReverse(knightsPriceCounter, knightsButton);
-    colorChangeReverse(paladinsPriceCounter, paladinsButton);
-    colorChangeReverse(dragonsPriceCounter, dragonsButton);
-    cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+    colorChangeAll();
   }
 });
 
@@ -333,12 +294,7 @@ const cityImg = document.querySelector(".section__container--image");
 cityImg.innerHTML = templateCityImg;
 
 cityButton.addEventListener("click", () => {
-  if (
-    (cityButton.innerHTML =
-      "Upgrade City to Lv. 2" &&
-      gold >= cityPriceCounter &&
-      military >= cityPowerCounter)
-  ) {
+  if (gold >= cityPriceCounter && military >= cityPowerCounter) {
     // zmiana tesktu i obrazka
     cityButton.innerHTML = "Upgrade City to Lv. 3";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv2.svg" alt="" />`;
@@ -353,12 +309,7 @@ cityButton.addEventListener("click", () => {
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (
-    (cityButton.innerHTML =
-      "Upgrade City to Lv. 3" &&
-      gold >= cityPriceCounter &&
-      military >= cityPowerCounter)
-  ) {
+  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
     // zmiana tesktu i obrazka
     cityButton.innerHTML = "Upgrade City to Lv. 4";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv3.svg" alt="" />`;
@@ -368,17 +319,12 @@ cityButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // zmiana ceny miasta
     cityPriceCounter = 15000;
-    cityPowerCounter = 700;
+    cityPowerCounter = 1000;
     cityPrice.innerHTML = cityPriceCounter;
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (
-    (cityButton.innerHTML =
-      "Upgrade City to Lv. 4" &&
-      gold >= cityPriceCounter &&
-      military >= cityPowerCounter)
-  ) {
+  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
     // zmiana tesktu i obrazka
     cityButton.innerHTML = "Upgrade City to Lv. 5";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv4.svg" alt="" />`;
@@ -393,12 +339,7 @@ cityButton.addEventListener("click", () => {
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (
-    (cityButton.innerHTML =
-      "Upgrade City to Lv. 5" &&
-      gold >= cityPriceCounter &&
-      military >= cityPowerCounter)
-  ) {
+  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
     // zmiana tesktu i obrazka
     cityButton.innerHTML = "City Fully upgraded";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv5.svg" alt="" />`;
