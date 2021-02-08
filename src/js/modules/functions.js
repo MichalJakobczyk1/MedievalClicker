@@ -1,5 +1,6 @@
 import {
   gold,
+  military,
   peasantsPriceCounter,
   merceneariesPriceCounter,
   priestsPriceCounter,
@@ -65,4 +66,12 @@ export function colorChangeAllActive() {
   colorChange(paladinsPriceCounter, paladinsButton);
   colorChange(dragonsPriceCounter, dragonsButton);
   cityColorChange(cityPriceCounter, cityPowerCounter, cityButton);
+}
+export function colorChangeReverseCity() {
+  colorChangeReverse(peasantsPriceCounter, peasantsButton);
+  colorChangeReverse(merceneariesPriceCounter, merceneariesButton);
+  colorChangeReverse(priestsPriceCounter, priestsButton);
+  colorChangeReverse(knightsPriceCounter, knightsButton);
+  colorChangeReverse(paladinsPriceCounter, paladinsButton);
+  colorChangeReverse(dragonsPriceCounter, dragonsButton);
 }

@@ -3,6 +3,8 @@ import {
   colorChangeAll,
   colorChangeAllActive,
   cityColorChangeReverse,
+  cityColorChange,
+  colorChangeReverseCity,
 } from "./modules/functions";
 
 // uncomment the lines below to enable PWA
@@ -61,7 +63,7 @@ cityPower.innerHTML = cityPowerCounter;
 
 // liczniki złota i siły
 export let gold = 0;
-let military = 0;
+export let military = 0;
 const goldPerSecondContainer = document.querySelector(
   ".counter--gold-per-second"
 );
@@ -294,8 +296,10 @@ const cityImg = document.querySelector(".section__container--image");
 cityImg.innerHTML = templateCityImg;
 
 cityButton.addEventListener("click", () => {
-  if (gold >= cityPriceCounter && military >= cityPowerCounter) {
+  if (cityButton.classList.contains("lv1")) {
     // zmiana tesktu i obrazka
+    cityButton.classList.remove("lv1");
+    cityButton.classList.add("lv2");
     cityButton.innerHTML = "Upgrade City to Lv. 3";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv2.svg" alt="" />`;
     cityImg.innerHTML = templateCityImg;
@@ -309,8 +313,11 @@ cityButton.addEventListener("click", () => {
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
+    colorChangeReverseCity();
+  } else if (cityButton.classList.contains("lv2")) {
     // zmiana tesktu i obrazka
+    cityButton.classList.remove("lv2");
+    cityButton.classList.add("lv3");
     cityButton.innerHTML = "Upgrade City to Lv. 4";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv3.svg" alt="" />`;
     cityImg.innerHTML = templateCityImg;
@@ -324,8 +331,11 @@ cityButton.addEventListener("click", () => {
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
+    colorChangeReverseCity();
+  } else if (cityButton.classList.contains("lv3")) {
     // zmiana tesktu i obrazka
+    cityButton.classList.remove("lv3");
+    cityButton.classList.add("lv4");
     cityButton.innerHTML = "Upgrade City to Lv. 5";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv4.svg" alt="" />`;
     cityImg.innerHTML = templateCityImg;
@@ -339,8 +349,11 @@ cityButton.addEventListener("click", () => {
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-  } else if (gold >= cityPriceCounter && military >= cityPowerCounter) {
+    colorChangeReverseCity();
+  } else if (cityButton.classList.contains("lv4")) {
     // zmiana tesktu i obrazka
+    cityButton.classList.remove("lv4");
+    cityButton.classList.add("lv5");
     cityButton.innerHTML = "City Fully upgraded";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv5.svg" alt="" />`;
     cityImg.innerHTML = templateCityImg;
