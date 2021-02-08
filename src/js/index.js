@@ -1,5 +1,6 @@
 import "../scss/main.scss";
 import {
+  scaleDelete,
   colorChangeAll,
   colorChangeAllActive,
   cityColorChangeReverse,
@@ -16,7 +17,15 @@ import {
 // generator złota
 const goldCounterButton = document.querySelector(".section__button--clicker");
 const goldCounter = document.querySelector(".counter--gold");
-const coin = document.querySelector(".section__coin--js");
+export const coin = document.querySelector(".section__coin--js");
+
+// obrazki jednostek
+const peasantsImage = document.querySelector(".peasants__image");
+const merceneariesImage = document.querySelector(".mercenearies__image");
+const priestsImage = document.querySelector(".priests__image");
+const knightsImage = document.querySelector(".knights__image");
+const paladinsImage = document.querySelector(".paladins__image");
+const dragonsImage = document.querySelector(".dragons__image");
 
 // liczniki jednostek
 const peasantsQuantity = document.querySelector(".counter--peasant");
@@ -95,6 +104,14 @@ function goldPerSecond() {
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
   colorChangeAllActive();
+  // usuwanie animacji
+  setTimeout(scaleDelete(coin, "section__coin--animated"), 100);
+  setTimeout(scaleDelete(peasantsImage, "animated"), 1000);
+  setTimeout(scaleDelete(merceneariesImage, "animated"), 1000);
+  setTimeout(scaleDelete(priestsImage, "animated"), 1000);
+  setTimeout(scaleDelete(knightsImage, "animated"), 1000);
+  setTimeout(scaleDelete(paladinsImage, "animated"), 1000);
+  setTimeout(scaleDelete(dragonsImage, "animated"), 1000);
 }
 
 // generator złota na kliknięcie
@@ -103,6 +120,8 @@ goldCounterButton.addEventListener("click", () => {
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
   colorChangeAllActive();
+  // animacja monety
+  coin.classList.add("section__coin--animated");
 });
 
 setInterval(goldPerSecond, 1000);
@@ -136,6 +155,8 @@ peasantsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    peasantsImage.classList.add("animated");
   }
 });
 
@@ -166,6 +187,8 @@ merceneariesButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    merceneariesImage.classList.add("animated");
   }
 });
 
@@ -196,6 +219,8 @@ priestsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    priestsImage.classList.add("animated");
   }
 });
 
@@ -226,6 +251,8 @@ knightsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    knightsImage.classList.add("animated");
   }
 });
 
@@ -256,6 +283,8 @@ paladinsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    paladinsImage.classList.add("animated");
   }
 });
 
@@ -286,6 +315,8 @@ dragonsButton.addEventListener("click", () => {
     militaryPower.innerHTML = military;
     // zmiana koloru przycisku
     colorChangeAll();
+    // animacja obrazka
+    dragonsImage.classList.add("animated");
   }
 });
 

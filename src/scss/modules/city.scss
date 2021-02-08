@@ -21,6 +21,10 @@
       height: 150px;
       grid-area: castle;
       margin: auto;
+      animation: cityAppear 1.5s ease-in forwards;
+      &-upgrade {
+        animation: cityAppear 1.5s ease-in alternate;
+      }
     }
   }
   &__container {

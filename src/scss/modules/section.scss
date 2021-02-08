@@ -36,6 +36,7 @@
       border-radius: 5px;
       color: var(--button-color-available);
       border: var(--button-border-available);
+      animation: buttonColor 0.25s ease-in forwards;
     }
   }
 }

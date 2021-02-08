@@ -39,3 +39,9 @@
     }
   }
 }
+
+.animated {
+  width: 75px;
+  height: 75px;
+  animation: unitScale 0.5s ease-in-out both;
+}

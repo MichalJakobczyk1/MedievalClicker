@@ -1,4 +1,5 @@
 import {
+  coin,
   gold,
   military,
   peasantsPriceCounter,
@@ -18,7 +19,10 @@ import {
   dragonsButton,
 } from "../index";
 
-// zmiana koloru przycisku
+export function scaleDelete(element, elementClass) {
+  element.classList.remove(elementClass);
+}
+
 export function colorChange(priceCounter, button) {
   if (gold >= priceCounter) {
     button.classList.remove("section__button--buy");
