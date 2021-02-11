@@ -39,4 +39,7 @@
       animation: buttonColor 0.25s ease-in forwards;
     }
   }
+  &__price {
+    color: var(--secondary-content-color);
+  }
 }

@@ -7,12 +7,14 @@
   &__container {
     &--article {
       display: flex;
+      flex-wrap: wrap;
     }
   }
   &__article {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 33%;
   }
   &__image {
     &--units {
@@ -30,6 +32,7 @@
       text-align: center;
       padding: 0 8px;
       font-size: 14px;
+      max-width: 300px;
     }
     &--special {
       font-size: 14px;

@@ -22,10 +22,11 @@ body {
   grid-template-areas:
     "header header"
     "clicker units"
-    "clicker upgrades"
+    "clicker units"
+    "city upgrades"
     "city upgrades";
   grid-template-columns: 30% 70%;
-  grid-template-rows: 10vh 60vh 5vh 25vh;
+  grid-template-rows: 10vh 100vh 60 5vh 25vh;
 }
 
 .header {

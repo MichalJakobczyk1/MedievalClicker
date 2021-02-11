@@ -32,9 +32,11 @@
           Click!
         </button>
       </div>
-      <p class="section__paragraph counter counter--gold">0</p>
-      <h3 class="section__h3">Gold</h3>
-      <p class="section__paragraph">Gold Per Second: <span class="counter--gold-per-second">0</span></p>
+      <div class="section__container section__container--clicker">
+        <h3 class="section__h3">Gold: </h3>
+        <p class="section__paragraph section__paragraph--clicker counter counter--gold">0</p>
+      </div>
+      <p class="section__paragraph">Gold Per Second: <span class="section__paragraph section__paragraph--counter counter--gold-per-second">0</span></p>
     </section>
     <section class="section section--city">
       <h2 class="section__h2 section__h2--city">Your City</h2>
@@ -47,7 +49,7 @@
         <button class="section__button section__button--buy section__button--city lv1"><span class="section__content section__content--js city--lv1"></span>
         </button>
         <p class="section__paragraph section__paragraph--lv1 section__paragraph--city">
-          Required: </br><span class="price--city"></span> Gold <span class="power--city"></span> Military Power
+          Required: </br><span class="section__price price--city"></span> Gold <span class="section__price power--city"></span> Military Power
         </p>
       </div>
     </section>
@@ -57,9 +59,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Peasants</h3>
         <img class="section__image section__image--units peasants__image" src="../assets/img/peasant.svg" alt="" />
-        <p class="section__paragraph">Quantity: <span class="counter--peasant">0</span></p>
+        <p class="section__paragraph">Quantity: <span class="section__price counter--peasant">0</span></p>
         <button class="section__button section__button--buy section__button--peasant">Buy</button>
-        <p class="section__paragraph">Price: <span class="price--peasant">10</span> Gold</p>
+        <p class="section__paragraph">Price: <span class="section__price price--peasant">10</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">
           Peasants are main money source in your empire, they provide food and
           utilities for your army, but altough their high gold income they are
@@ -70,13 +72,13 @@
         <h3 class="section__h3 section__h3--units">Mercenearies</h3>
         <img class="section__image section__image--units mercenearies__image" src="../assets/img/mercenary.svg" alt="" />
         <p class="section__paragraph">
-          Quantity: <span class="counter--merceneary">0</span>
+          Quantity: <span class="section__price counter--merceneary">0</span>
         </p>
         <button class="section__button section__button--buy section__button--merceneary">
           Buy
         </button>
         <p class="section__paragraph">
-          Price:  <span class="price--merceneary">100</span> Gold
+          Price:  <span class="section__price price--merceneary">100</span> Gold
         </p>
         <p class="section__paragraph section__paragraph--description">
           Mercenearies are expensive units with high military power, but they
@@ -87,9 +89,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Priests</h3>
         <img class="section__image section__image--units priests__image" src="../assets/img/priest.svg" alt="" />
-        <p class="section__paragraph">Quantity: <span class="counter--priest">0</span></p>
+        <p class="section__paragraph">Quantity: <span class="section__price counter--priest">0</span></p>
         <button class="section__button section__button--buy section__button--priest">Buy</button>
-        <p class="section__paragraph">Price: <span class="price--priest">100</span> Gold</p>
+        <p class="section__paragraph">Price: <span class="section__price price--priest">100</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">
           Priest are very respected in your empire, they earn a lot of gold
           from people donations on church, but they are not that relevant in
@@ -99,9 +101,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Knights</h3>
         <img class="section__image section__image--units knights__image" src="../assets/img/knight.svg" alt="" />
-        <p class="section__paragraph">Quantity: <span class="counter--knight">0</span></p>
+        <p class="section__paragraph">Quantity: <span class="section__price counter--knight">0</span></p>
         <button class="section__button section__button--buy section__button--knight">Buy</button>
-        <p class="section__paragraph">Price: <span class="price--knight">300</span> Gold</p>
+        <p class="section__paragraph">Price: <span class="section__price price--knight">300</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">
           Knights are expensive, powerful warriors, they are excellent in
           battle and offer some of their payment for your empire as well as
@@ -112,9 +114,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Paladins</h3>
         <img class="section__image section__image--units paladins__image" src="../assets/img/paladin.svg" alt="" />
-        <p class="section__paragraph">Quantity: <span class="counter--paladin">0</span></p>
+        <p class="section__paragraph">Quantity: <span class="section__price counter--paladin">0</span></p>
         <button class="section__button section__button--buy section__button--paladin">Buy</button>
-        <p class="section__paragraph">Price:  <span class="price--paladin">1000</span> Gold</p>
+        <p class="section__paragraph">Price:  <span class="section__price price--paladin">1000</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">Those holy warriors rend through your enemies with
           the power of god on their swords, they are most respected units in your empires, so people are most likely to
           pay for their holy crusade.
@@ -124,9 +126,9 @@
       <article class="section__article">
         <h3 class="section__h3 section__h3--units">Dragons</h3>
         <img class="section__image section__image--units dragons__image" src="../assets/img/dragon.svg" alt="" />
-        <p class="section__paragraph">Quantity: <span class="counter--dragon">0</span></p>
+        <p class="section__paragraph">Quantity: <span class="section__price counter--dragon">0</span></p>
         <button class="section__button section__button--buy section__button--dragon">Buy</button>
-        <p class="section__paragraph">Price:  <span class="price--dragons">3000</span> Gold</p>
+        <p class="section__paragraph">Price:  <span class="section__price price--dragons">3000</span> Gold</p>
         <p class="section__paragraph section__paragraph--description">Dragons are the greatest blessing from your God
           Imperator, they outclass every single unit in battle, also they will share their knowledge and treasures with
           anyone that worships them <span class="section__paragraph section__paragraph--special">Gold per second: 40</br>  Military Power: 100 </br>Your priest are battle priests now. They earn +1 military power for each dragon</span></p>
@@ -161,6 +163,9 @@
         <div class="section__tile"></div>
         <div class="section__tile"></div>
       </div>
+      <article>
+        <h3 class="section__h3 section__h3--upgrades">lorem</h3>
+        <p class="section__paragraph section__paragraph--upgrades">lorem ipsum</p></article>
     </section>
   </main>
 </body>

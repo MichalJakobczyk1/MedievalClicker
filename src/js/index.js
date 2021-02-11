@@ -66,8 +66,8 @@ const cityPower = document.querySelector(".power--city");
 const militaryPower = document.querySelector(".counter--power");
 const cityCounters = document.querySelector(".section__paragraph--lv1");
 
-export let cityPriceCounter = 10;
-export let cityPowerCounter = 1;
+export let cityPriceCounter = 1000;
+export let cityPowerCounter = 100;
 
 cityButtonContent.innerHTML = " Upgrade City to Lv. 2";
 cityPrice.innerHTML = cityPriceCounter;
@@ -362,8 +362,8 @@ cityButton.addEventListener("click", () => {
       gold -= cityPriceCounter;
       goldCounter.innerHTML = gold;
       // zmiana ceny miasta
-      cityPriceCounter = 20;
-      cityPowerCounter = 5;
+      cityPriceCounter = 5000;
+      cityPowerCounter = 300;
       cityPrice.innerHTML = cityPriceCounter;
       cityPower.innerHTML = cityPowerCounter;
       // zmiana koloru przycisku
