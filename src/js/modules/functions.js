@@ -19,8 +19,12 @@ import {
   dragonsButton,
 } from "../index";
 
-export function scaleDelete(element, elementClass) {
+export function classDelete(element, elementClass) {
   element.classList.remove(elementClass);
+}
+
+export function classAdd(element, elementClass) {
+  element.classList.add(elementClass);
 }
 
 export function colorChange(priceCounter, button) {

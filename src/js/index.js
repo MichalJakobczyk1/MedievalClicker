@@ -1,6 +1,7 @@
 import "../scss/main.scss";
 import {
-  scaleDelete,
+  classDelete,
+  classAdd,
   colorChangeAll,
   colorChangeAllActive,
   cityColorChangeReverse,
@@ -59,16 +60,25 @@ const dragonsPrice = document.querySelector(".price--dragons");
 
 // miasto
 export const cityButton = document.querySelector(".section__button--city");
+const cityButtonContent = document.querySelector(".section__content--js");
 const cityPrice = document.querySelector(".price--city");
 const cityPower = document.querySelector(".power--city");
 const militaryPower = document.querySelector(".counter--power");
+const cityCounters = document.querySelector(".section__paragraph--lv1");
 
-export let cityPriceCounter = 1000;
-export let cityPowerCounter = 100;
+export let cityPriceCounter = 10;
+export let cityPowerCounter = 1;
 
-cityButton.innerHTML = " Upgrade City to Lv. 2";
+cityButtonContent.innerHTML = " Upgrade City to Lv. 2";
 cityPrice.innerHTML = cityPriceCounter;
 cityPower.innerHTML = cityPowerCounter;
+
+// ulepszanie miasta
+let templateCityImg = `<img class="section__image section__image--city" src="cityLv1.svg" alt="" />`;
+const cityImgContainer = document.querySelector(".section__container--image");
+const cityImg = document.querySelector(".section__image--city");
+
+cityImgContainer.innerHTML = templateCityImg;
 
 // liczniki złota i siły
 export let gold = 0;
@@ -105,13 +115,13 @@ function goldPerSecond() {
   // zmiana koloru przycisku
   colorChangeAllActive();
   // usuwanie animacji
-  setTimeout(scaleDelete(coin, "section__coin--animated"), 100);
-  setTimeout(scaleDelete(peasantsImage, "animated"), 1000);
-  setTimeout(scaleDelete(merceneariesImage, "animated"), 1000);
-  setTimeout(scaleDelete(priestsImage, "animated"), 1000);
-  setTimeout(scaleDelete(knightsImage, "animated"), 1000);
-  setTimeout(scaleDelete(paladinsImage, "animated"), 1000);
-  setTimeout(scaleDelete(dragonsImage, "animated"), 1000);
+  setTimeout(classDelete(coin, "section__coin--animated"), 100);
+  setTimeout(classDelete(peasantsImage, "animated"), 1000);
+  setTimeout(classDelete(merceneariesImage, "animated"), 1000);
+  setTimeout(classDelete(priestsImage, "animated"), 1000);
+  setTimeout(classDelete(knightsImage, "animated"), 1000);
+  setTimeout(classDelete(paladinsImage, "animated"), 1000);
+  setTimeout(classDelete(dragonsImage, "animated"), 1000);
 }
 
 // generator złota na kliknięcie
@@ -320,38 +330,58 @@ dragonsButton.addEventListener("click", () => {
   }
 });
 
-// ulepszanie miasta
-let templateCityImg = `<img class="section__image section__image--city" src="cityLv1.svg" alt="" />`;
-const cityImg = document.querySelector(".section__container--image");
-
-cityImg.innerHTML = templateCityImg;
-
 cityButton.addEventListener("click", () => {
-  if (cityButton.classList.contains("lv1")) {
+  if (
+    cityButtonContent.classList.contains("city--lv1") &&
+    gold >= cityPriceCounter &&
+    military >= cityPowerCounter
+  ) {
+    // animacja obrazka
+    templateCityImg = `<img class="section__image section__image--city-upgrade" src="cityLv1.svg" alt="" />`;
+    cityImgContainer.innerHTML = templateCityImg;
+    cityButtonContent.innerHTML = "Upgrade City to Lv. 3";
+    // animacja paragrafu
+    cityCounters.classList.remove("section__paragraph--lv1");
+    cityCounters.classList.add("section__paragraph--lv1-deanimated");
+    // animacja treści przycisku
+    cityButtonContent.classList.remove("section__content");
+    cityButtonContent.classList.add("section__content--deanimated");
+    // funkcja
+    function cityRender() {
+      // zmiana tesktu i obrazka
+      cityButtonContent.classList.remove("city--lv1");
+      cityButtonContent.classList.add("city--lv2");
+      cityCounters.classList.remove("section__paragraph--lv1-deanimated");
+      cityCounters.classList.add("section__paragraph--lv1");
+      cityButtonContent.classList.remove("section__content--deanimated");
+      cityButtonContent.classList.add("section__content");
+
+      templateCityImg = `<img class="section__image section__image--city" src="cityLv2.svg" alt="" />`;
+      cityImgContainer.innerHTML = templateCityImg;
+      // odejmowanie złota
+      gold -= cityPriceCounter;
+      goldCounter.innerHTML = gold;
+      // zmiana ceny miasta
+      cityPriceCounter = 20;
+      cityPowerCounter = 5;
+      cityPrice.innerHTML = cityPriceCounter;
+      cityPower.innerHTML = cityPowerCounter;
+      // zmiana koloru przycisku
+      cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
+      colorChangeReverseCity();
+    }
+    setTimeout(cityRender, 2000);
+  } else if (
+    cityButtonContent.classList.contains("city--lv2") &&
+    gold >= cityPriceCounter &&
+    military >= cityPowerCounter
+  ) {
     // zmiana tesktu i obrazka
-    cityButton.classList.remove("lv1");
-    cityButton.classList.add("lv2");
-    cityButton.innerHTML = "Upgrade City to Lv. 3";
-    templateCityImg = `<img class="section__image section__image--city" src="cityLv2.svg" alt="" />`;
-    cityImg.innerHTML = templateCityImg;
-    // odejmowanie złota
-    gold -= cityPriceCounter;
-    goldCounter.innerHTML = gold;
-    // zmiana ceny miasta
-    cityPriceCounter = 5000;
-    cityPowerCounter = 300;
-    cityPrice.innerHTML = cityPriceCounter;
-    cityPower.innerHTML = cityPowerCounter;
-    // zmiana koloru przycisku
-    cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
-    colorChangeReverseCity();
-  } else if (cityButton.classList.contains("lv2")) {
-    // zmiana tesktu i obrazka
-    cityButton.classList.remove("lv2");
-    cityButton.classList.add("lv3");
-    cityButton.innerHTML = "Upgrade City to Lv. 4";
+    cityButtonContent.classList.remove("city--lv2");
+    cityButtonContent.classList.add("city--lv3");
+    cityButtonContent.innerHTML = "Upgrade City to Lv. 4";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv3.svg" alt="" />`;
-    cityImg.innerHTML = templateCityImg;
+    cityImgContainer.innerHTML = templateCityImg;
     // odejmowanie złota
     gold -= cityPriceCounter;
     goldCounter.innerHTML = gold;
@@ -363,13 +393,17 @@ cityButton.addEventListener("click", () => {
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
     colorChangeReverseCity();
-  } else if (cityButton.classList.contains("lv3")) {
+  } else if (
+    cityButtonContent.classList.contains("city--lv3") &&
+    gold >= cityPriceCounter &&
+    military >= cityPowerCounter
+  ) {
     // zmiana tesktu i obrazka
-    cityButton.classList.remove("lv3");
-    cityButton.classList.add("lv4");
-    cityButton.innerHTML = "Upgrade City to Lv. 5";
+    cityButtonContent.classList.remove("city--lv3");
+    cityButtonContent.classList.add("city--lv4");
+    cityButtonContent.innerHTML = "Upgrade City to Lv. 5";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv4.svg" alt="" />`;
-    cityImg.innerHTML = templateCityImg;
+    cityImgContainer.innerHTML = templateCityImg;
     // odejmowanie złota
     gold -= cityPriceCounter;
     goldCounter.innerHTML = gold;
@@ -381,13 +415,17 @@ cityButton.addEventListener("click", () => {
     // zmiana koloru przycisku
     cityColorChangeReverse(cityPriceCounter, cityPowerCounter, cityButton);
     colorChangeReverseCity();
-  } else if (cityButton.classList.contains("lv4")) {
+  } else if (
+    cityButtonContent.classList.contains("city--lv4") &&
+    gold >= cityPriceCounter &&
+    military >= cityPowerCounter
+  ) {
     // zmiana tesktu i obrazka
-    cityButton.classList.remove("lv4");
-    cityButton.classList.add("lv5");
-    cityButton.innerHTML = "City Fully upgraded";
+    cityButtonContent.classList.remove("city--lv4");
+    cityButtonContent.classList.add("city--lv5");
+    cityButtonContent.innerHTML = "City Fully upgraded";
     templateCityImg = `<img class="section__image section__image--city" src="cityLv5.svg" alt="" />`;
-    cityImg.innerHTML = templateCityImg;
+    cityImgContainer.innerHTML = templateCityImg;
     // zmiana ceny miasta
     const cityFinalLevel = document.querySelector(".section__paragraph--city");
     cityFinalLevel.innerHTML = "No Upgrades Left";

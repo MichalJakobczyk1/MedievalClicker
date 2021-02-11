@@ -21,10 +21,21 @@
       height: 150px;
       grid-area: castle;
       margin: auto;
-      animation: cityAppear 1.5s ease-in forwards;
+      animation: appear 1s ease-in both;
       &-upgrade {
-        animation: cityAppear 1.5s ease-in alternate;
+        width: 150px;
+        height: 150px;
+        grid-area: castle;
+        margin: auto;
+        animation: disappear 1s ease-in both;
       }
+    }
+  }
+  &__content {
+    font-weight: 700;
+    animation: appear 1s ease-in both;
+    &--deanimated {
+      animation: disappear 1s ease-in both;
     }
   }
   &__container {
@@ -44,6 +55,12 @@
   &__paragraph {
     &--city {
       text-align: center;
+    }
+    &--lv1 {
+      animation: appear 1s ease-in both;
+    }
+    &--lv1-deanimated {
+      animation: disappear 1s ease-in both;
     }
   }
 }
