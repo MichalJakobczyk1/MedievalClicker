@@ -30,6 +30,7 @@ const dragonsImage = document.querySelector(".dragons__image");
 
 // liczniki jednostek
 const peasantsQuantity = document.querySelector(".counter--peasant");
+const peasantsUpgrade = document.querySelector(".peasants--upgrade");
 const merceneariesQuantity = document.querySelector(".counter--merceneary");
 const priestsQuantity = document.querySelector(".counter--priest");
 const knightsQuantity = document.querySelector(".counter--knight");
@@ -105,7 +106,7 @@ export let dragonsPriceCounter = 3000;
 
 // generowanie złota co sekundę
 function goldPerSecond() {
-  gold += peasants * 1;
+  gold += peasants * 2;
   gold += mercenearies * 2;
   gold += priests * 10;
   gold += knights * 5;
@@ -148,7 +149,7 @@ peasantsButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
@@ -180,7 +181,7 @@ merceneariesButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
@@ -212,7 +213,7 @@ priestsButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
@@ -244,7 +245,7 @@ knightsButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
@@ -286,7 +287,7 @@ paladinsButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
@@ -305,6 +306,21 @@ paladinsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     paladinsImage.classList.add("animated");
+    if (paladins % 1 === 0) {
+      function paladinsAbility() {
+        let upgrade = 2 + paladins;
+        let goldPerSecondCounter =
+          peasants * upgrade +
+          mercenearies * 2 +
+          priests * 10 +
+          knights * 5 +
+          paladins * 25 +
+          dragons * 40;
+        goldPerSecondContainer.innerHTML = goldPerSecondCounter;
+        peasantsUpgrade.innerHTML = upgrade;
+      }
+      paladinsAbility();
+    }
   }
 });
 
@@ -318,7 +334,7 @@ dragonsButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // aktualizacja licznika złota co sekundę
     let goldPerSecondCounter =
-      peasants * 1 +
+      peasants * 2 +
       mercenearies * 2 +
       priests * 10 +
       knights * 5 +
