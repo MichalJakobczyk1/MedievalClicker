@@ -263,6 +263,16 @@ knightsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     knightsImage.classList.add("animated");
+    // umiejętność
+    if (knights % 1 === 0) {
+      function knightsAbility() {
+        let randomizerKnights = Math.floor(Math.random() * 2) + 1;
+        if (randomizerKnights === 1) {
+          gold += 30;
+        }
+      }
+      setInterval(knightsAbility, 5000);
+    }
   }
 });
 
