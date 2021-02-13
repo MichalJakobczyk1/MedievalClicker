@@ -21,18 +21,26 @@ const goldCounter = document.querySelector(".counter--gold");
 export const coin = document.querySelector(".section__coin--js");
 
 // obrazki jednostek
-const peasantsImage = document.querySelector(".peasants__image");
-const merceneariesImage = document.querySelector(".mercenearies__image");
-const priestsImage = document.querySelector(".priests__image");
-const knightsImage = document.querySelector(".knights__image");
-const paladinsImage = document.querySelector(".paladins__image");
-const dragonsImage = document.querySelector(".dragons__image");
+const peasantsImage = document.querySelector(".section__image--peasants");
+const merceneariesImage = document.querySelector(
+  ".section__image--mercenearies"
+);
+const priestsImage = document.querySelector(".section__image--priests");
+const knightsImage = document.querySelector(".section__image--knights");
+const paladinsImage = document.querySelector(".section__image--paladins");
+const dragonsImage = document.querySelector(".section__image--dragons");
 
 // liczniki jednostek
 const peasantsQuantity = document.querySelector(".counter--peasant");
 const peasantsUpgrade = document.querySelector(".peasants--upgrade");
 const merceneariesQuantity = document.querySelector(".counter--merceneary");
 const priestsQuantity = document.querySelector(".counter--priest");
+const priestsUpgrade = document.querySelector(".priests--js");
+const priestsMilitaryUpgrade = document.querySelector(".priests--upgrade");
+priestsMilitaryUpgrade.innerHTML = 2;
+const priestsDescritpion = document.querySelector(
+  ".section__paragraph--priests"
+);
 const knightsQuantity = document.querySelector(".counter--knight");
 const paladinsQuantity = document.querySelector(".counter--paladin");
 const dragonsQuantity = document.querySelector(".counter--dragon");
@@ -117,12 +125,6 @@ function goldPerSecond() {
   colorChangeAllActive();
   // usuwanie animacji
   setTimeout(classDelete(coin, "section__coin--animated"), 100);
-  setTimeout(classDelete(peasantsImage, "animated"), 1000);
-  setTimeout(classDelete(merceneariesImage, "animated"), 1000);
-  setTimeout(classDelete(priestsImage, "animated"), 1000);
-  setTimeout(classDelete(knightsImage, "animated"), 1000);
-  setTimeout(classDelete(paladinsImage, "animated"), 1000);
-  setTimeout(classDelete(dragonsImage, "animated"), 1000);
 }
 
 // generator złota na kliknięcie
@@ -168,6 +170,10 @@ peasantsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     peasantsImage.classList.add("animated");
+    function peasantsDeanimation() {
+      peasantsImage.classList.remove("animated");
+    }
+    setTimeout(peasantsDeanimation, 500);
   }
 });
 
@@ -189,7 +195,7 @@ merceneariesButton.addEventListener("click", () => {
       dragons * 40;
     goldPerSecondContainer.innerHTML = goldPerSecondCounter;
     // podnoszenie ceny i zaokrąglanie
-    merceneariesPriceCounter *= 1.3;
+    merceneariesPriceCounter *= 1.25;
     merceneariesPriceCounter = merceneariesPriceCounter.toFixed(0);
     // aktualizacja stanu jednostek
     merceneariesPrice.innerHTML = merceneariesPriceCounter;
@@ -200,6 +206,10 @@ merceneariesButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     merceneariesImage.classList.add("animated");
+    function merceneariesDeanimation() {
+      merceneariesImage.classList.remove("animated");
+    }
+    setTimeout(merceneariesDeanimation, 500);
   }
 });
 
@@ -232,6 +242,10 @@ priestsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     priestsImage.classList.add("animated");
+    function priestsDeanimation() {
+      priestsImage.classList.remove("animated");
+    }
+    setTimeout(priestsDeanimation, 500);
   }
 });
 
@@ -264,6 +278,10 @@ knightsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     knightsImage.classList.add("animated");
+    function knightsDeanimation() {
+      knightsImage.classList.remove("animated");
+    }
+    setTimeout(knightsDeanimation, 500);
     // umiejętność
     if (knights % 1 === 0) {
       function knightsAbility() {
@@ -306,6 +324,10 @@ paladinsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     paladinsImage.classList.add("animated");
+    function paladinsDeanimation() {
+      paladinsImage.classList.remove("animated");
+    }
+    setTimeout(paladinsDeanimation, 500);
     if (paladins % 1 === 0) {
       function paladinsAbility() {
         let upgrade = 2 + paladins;
@@ -319,6 +341,8 @@ paladinsButton.addEventListener("click", () => {
         goldPerSecondContainer.innerHTML = goldPerSecondCounter;
         peasantsUpgrade.innerHTML = upgrade;
       }
+      setInterval(goldPerSecond, 1000);
+      goldPerSecond();
       paladinsAbility();
     }
   }
@@ -353,9 +377,19 @@ dragonsButton.addEventListener("click", () => {
     colorChangeAll();
     // animacja obrazka
     dragonsImage.classList.add("animated");
+    function dragonsDeanimation() {
+      dragonsImage.classList.remove("animated");
+    }
+    setTimeout(dragonsDeanimation, 500);
+    if (dragons % 1 === 0) {
+      military += dragons * 2 * priests;
+      militaryPower.innerHTML = military;
+      priestsUpgrade.innerHTML = "Battle Priests";
+      priestsDescritpion.innerHTML = ` Battle Priests are special units which march to the war under the wings od dragon destruction. <span class="section__paragraph section__paragraph--special">Gold per second: 10 Military Power: <span class="priests--upgrade">2</span></span> `;
+      priestsMilitaryUpgrade.innerHTML = dragons * 2 + 2;
+    }
   }
 });
-
 cityButton.addEventListener("click", () => {
   if (
     cityButtonContent.classList.contains("city--lv1") &&
