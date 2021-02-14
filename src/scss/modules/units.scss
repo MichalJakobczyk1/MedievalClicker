@@ -35,10 +35,12 @@
       max-width: 300px;
     }
     &--special {
+      text-align: center;
+      line-height: 22px;
       font-size: 14px;
       display: block;
+      margin: 0;
       padding: 8px 0;
-      line-height: 22px;
     }
   }
 }

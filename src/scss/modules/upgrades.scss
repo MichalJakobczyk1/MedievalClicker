@@ -16,11 +16,21 @@
     }
   }
   &__tile {
-    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--tile-border);
+    border-radius: 16px;
     width: 80px;
     height: 80px;
     padding: 4px;
     margin: 2px;
+  }
+  &__image {
+    &--upgrades {
+      width: 70px;
+      height: 70px;
+    }
   }
   &__paragraph {
     &--upgrades {

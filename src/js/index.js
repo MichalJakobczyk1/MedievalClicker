@@ -38,9 +38,7 @@ const priestsQuantity = document.querySelector(".counter--priest");
 const priestsUpgrade = document.querySelector(".priests--js");
 const priestsMilitaryUpgrade = document.querySelector(".priests--upgrade");
 priestsMilitaryUpgrade.innerHTML = 2;
-const priestsDescritpion = document.querySelector(
-  ".section__paragraph--priests"
-);
+const priestsDescritpion = document.querySelector(".priests--description");
 const knightsQuantity = document.querySelector(".counter--knight");
 const paladinsQuantity = document.querySelector(".counter--paladin");
 const dragonsQuantity = document.querySelector(".counter--dragon");
@@ -385,7 +383,8 @@ dragonsButton.addEventListener("click", () => {
       military += dragons * 2 * priests;
       militaryPower.innerHTML = military;
       priestsUpgrade.innerHTML = "Battle Priests";
-      priestsDescritpion.innerHTML = ` Battle Priests are special units which march to the war under the wings od dragon destruction. <span class="section__paragraph section__paragraph--special">Gold per second: 10 Military Power: <span class="priests--upgrade">2</span></span> `;
+      priestsDescritpion.innerHTML =
+        " Battle Priests are special units which march to the war under the wings od dragon destruction.";
       priestsMilitaryUpgrade.innerHTML = dragons * 2 + 2;
     }
   }
@@ -422,8 +421,8 @@ cityButton.addEventListener("click", () => {
       gold -= cityPriceCounter;
       goldCounter.innerHTML = gold;
       // zmiana ceny miasta
-      cityPriceCounter = 5000;
-      cityPowerCounter = 300;
+      cityPriceCounter = 8000;
+      cityPowerCounter = 350;
       cityPrice.innerHTML = cityPriceCounter;
       cityPower.innerHTML = cityPowerCounter;
       // zmiana koloru przycisku
@@ -446,8 +445,8 @@ cityButton.addEventListener("click", () => {
     gold -= cityPriceCounter;
     goldCounter.innerHTML = gold;
     // zmiana ceny miasta
-    cityPriceCounter = 15000;
-    cityPowerCounter = 1000;
+    cityPriceCounter = 20000;
+    cityPowerCounter = 1250;
     cityPrice.innerHTML = cityPriceCounter;
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
@@ -469,7 +468,7 @@ cityButton.addEventListener("click", () => {
     goldCounter.innerHTML = gold;
     // zmiana ceny miasta
     cityPriceCounter = 100000;
-    cityPowerCounter = 2500;
+    cityPowerCounter = 5000;
     cityPrice.innerHTML = cityPriceCounter;
     cityPower.innerHTML = cityPowerCounter;
     // zmiana koloru przycisku
