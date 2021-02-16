@@ -7,6 +7,7 @@ import {
   cityColorChangeReverse,
   cityColorChange,
   colorChangeReverseCity,
+  upgradeAnimation,
 } from "./modules/functions";
 
 // uncomment the lines below to enable PWA
@@ -490,3 +491,317 @@ cityButton.addEventListener("click", () => {
     cityFinalLevel.innerHTML = "No Upgrades Left";
   }
 });
+
+const upgradeAll1 = document.querySelector(".section__button--all1");
+const upgradeAll2 = document.querySelector(".section__button--all2");
+const upgradeClicker1 = document.querySelector(".section__button--clicker1");
+const upgradeClicker2 = document.querySelector(".section__button--clicker2");
+const upgradePeasants1 = document.querySelector(".section__button--peasants1");
+const upgradePeasants2 = document.querySelector(".section__button--peasants2");
+const upgradeMercenearies1 = document.querySelector(
+  ".section__button--mercenearies1"
+);
+const upgradeMercenearies2 = document.querySelector(
+  ".section__button--mercenearies2"
+);
+const upgradePriests1 = document.querySelector(".section__button--priests1");
+const upgradePriests2 = document.querySelector(".section__button--priests2");
+const upgradeKnights1 = document.querySelector(".section__button--knights1");
+const upgradeKnights2 = document.querySelector(".section__button--knights2");
+const upgradePaladins1 = document.querySelector(".section__button--paladins1");
+const upgradePaladins2 = document.querySelector(".section__button--paladins2");
+const upgradeDragons1 = document.querySelector(".section__button--dragons1");
+const upgradeDragons2 = document.querySelector(".section__button--dragons2");
+
+export const upgradeTitle = document.querySelector(".section__h3--upgrades");
+export const upgradeDescription = document.querySelector(
+  ".section__paragraph--upgrades"
+);
+
+upgradeAll1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Unstopable Power",
+    `Double your current military power. <span class="section__paragraph--required">Required:</span> 75000 Gold <span class="section__paragraph--required">City Lv:</span> 5`
+  )
+);
+
+upgradeAll1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Unstopable Power",
+    `Double your current military power. <span class="section__paragraph--required">Required:</span> 75000 Gold <span class="section__paragraph--required">City Lv:</span> 5`
+  )
+);
+
+upgradeAll2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Taxes",
+    `Gain +10 gold per unit <span class="section__paragraph--required">Required:</span> 500 Military Power <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeAll2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Taxes",
+    `Gain +10 gold per unit <span class="section__paragraph--required">Required:</span> 500 Military Power <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeClicker1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Click, Click",
+    `Clicking generates +1 gold per every peasant <span class="section__paragraph--required">Required:</span> 2500 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeClicker1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Click, Click",
+    `Clicking generates +1 gold per every peasant <span class="section__paragraph--required">Required:</span> 2500 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeClicker2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Golden Clicks",
+    `Clicking generates +2% of your gold per second <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradeClicker2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Golden Clicks",
+    `Clicking generates +2% of your gold per second <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradePeasants1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Militia",
+    `+1 Military Power <span class="section__paragraph--required">Required:</span> 5000 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradePeasants1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Militia",
+    `+1 Military Power <span class="section__paragraph--required">Required:</span> 5000 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradePeasants2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Savings",
+    `Every Peasant has a chance for extra 1 gold every 2 seconds <span class="section__paragraph--required">Required:</span> 7000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradePeasants2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Savings",
+    `Every Peasant has a chance for extra 1 gold every 2 seconds <span class="section__paragraph--required">Required:</span> 7000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradeMercenearies1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Bought Force",
+    `Gain military power equal to 5% of your current gold per second <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradeMercenearies1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Bought Force",
+    `Gain military power equal to 5% of your current gold per second <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradeMercenearies2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Double the power",
+    `Double your mercenearies current military power <span class="section__paragraph--required">Required:</span> 15000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradeMercenearies2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Double the power",
+    `Double your mercenearies current military power <span class="section__paragraph--required">Required:</span> 15000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradePriests1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Reforms",
+    `Peasants gains +1 gold per second if you have 15 or more priests <span class="section__paragraph--required">Required:</span> 5000 Gold <span class="section__paragraph--required">City Lv:</span> 2 <span class="section__paragraph--required">Priests:</span> 15`
+  )
+);
+
+upgradePriests1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Reforms",
+    `Peasants gains +1 gold per second if you have 15 or more priests <span class="section__paragraph--required">Required:</span> 5000 Gold <span class="section__paragraph--required">City Lv:</span> 2 <span class="section__paragraph--required">Priests:</span> 15`
+  )
+);
+
+upgradePriests2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "True Fire",
+    `Dragons gains +25 military power <span class="section__paragraph--required">Required:</span> 25000 Gold <span class="section__paragraph--required">City Lv:</span> 4`
+  )
+);
+
+upgradePriests2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "True Fire",
+    `Dragons gains +25 military power <span class="section__paragraph--required">Required:</span> 5000 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeKnights1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Spoils Of War",
+    `Knights gains 50 gold instead of 30 on their ability <span class="section__paragraph--required">Required:</span> 8000 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeKnights1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Spoils Of War",
+    `Knights gains 50 gold instead of 30 on their ability <span class="section__paragraph--required">Required:</span> 8000 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeKnights2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Fief",
+    `+1 military power for mercenearies per knight <span class="section__paragraph--required">Required:</span> 15000 Gold <span class="section__paragraph--required">City Lv:</span> 4`
+  )
+);
+
+upgradeKnights2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Fief",
+    `+1 military power for mercenearies per knight <span class="section__paragraph--required">Required:</span> 15000 Gold <span class="section__paragraph--required">City Lv:</span> 4`
+  )
+);
+
+upgradePaladins1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Inspire",
+    `+1 gold to paladins ability <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradePaladins1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Inspire",
+    `+1 gold to paladins ability <span class="section__paragraph--required">Required:</span> 10000 Gold <span class="section__paragraph--required">City Lv:</span> 3`
+  )
+);
+
+upgradePaladins2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Holy Clicker",
+    `+5 gold per click for every paladin <span class="section__paragraph--required">Required:</span> 7500 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradePaladins2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Holy Clicker",
+    `+5 gold per click for every paladin <span class="section__paragraph--required">Required:</span> 7500 Gold <span class="section__paragraph--required">City Lv:</span> 2`
+  )
+);
+
+upgradeDragons1.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Call To Arms",
+    `Battle priests, knights and paladins gains +1 military power per dragon <span class="section__paragraph--required">Required:</span> 25000 Gold <span class="section__paragraph--required">City Lv:</span> 4`
+  )
+);
+
+upgradeDragons1.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Call To Arms",
+    `Battle priests, knights and paladins gains +1 military power per dragon <span class="section__paragraph--required">Required:</span> 25000 Gold <span class="section__paragraph--required">City Lv:</span> 4`
+  )
+);
+
+upgradeDragons2.addEventListener("mouseenter", () =>
+  upgradeAnimation(
+    "appear 0.5s ease-in both",
+    "appear 0.5s 0.25s ease-in both",
+    "Dragon Might",
+    `Dragons gains +50 military power <span class="section__paragraph--required">Required:</span> 75000 Gold <span class="section__paragraph--required">City Lv:</span> 5`
+  )
+);
+
+upgradeDragons2.addEventListener("mouseleave", () =>
+  upgradeAnimation(
+    "disappear 0.5s ease-in both",
+    "disappear 0.5s 0.25s ease-in both",
+    "Dragon Might",
+    `Dragons gains +50 military power <span class="section__paragraph--required">Required:</span> 75000 Gold <span class="section__paragraph--required">City Lv:</span> 5`
+  )
+);

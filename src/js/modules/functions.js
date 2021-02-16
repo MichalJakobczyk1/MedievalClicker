@@ -17,6 +17,8 @@ import {
   knightsButton,
   paladinsButton,
   dragonsButton,
+  upgradeTitle,
+  upgradeDescription,
 } from "../index";
 
 export function classDelete(element, elementClass) {
@@ -82,4 +84,19 @@ export function colorChangeReverseCity() {
   colorChangeReverse(knightsPriceCounter, knightsButton);
   colorChangeReverse(paladinsPriceCounter, paladinsButton);
   colorChangeReverse(dragonsPriceCounter, dragonsButton);
+}
+
+export function upgradeAnimation(
+  animation,
+  animationDelayed,
+  title,
+  description
+) {
+  document.documentElement.style.setProperty("--animation-h3", animation);
+  document.documentElement.style.setProperty(
+    "--animation-paragraph",
+    animationDelayed
+  );
+  upgradeTitle.innerHTML = title;
+  upgradeDescription.innerHTML = description;
 }

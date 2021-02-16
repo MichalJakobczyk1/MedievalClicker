@@ -32,15 +32,33 @@
       height: 70px;
     }
   }
+  &__button {
+    &--upgrade {
+      background: none;
+    }
+  }
+  &__article {
+    &--upgrades {
+      margin: 16px 0;
+    }
+  }
   &__paragraph {
     &--upgrades {
+      opacity: 0;
+      width: max-content;
       text-align: center;
+      animation: var(--animation-paragraph);
+    }
+    &--required {
+      color: var(--secondary-content-color);
     }
   }
   &__h3 {
     &--upgrades {
+      opacity: 0;
       text-align: center;
       padding: 8px 0;
+      animation: var(--animation-h3);
     }
   }
 }
