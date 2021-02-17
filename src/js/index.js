@@ -8,6 +8,7 @@ import {
   cityColorChange,
   colorChangeReverseCity,
   upgradeAnimation,
+  colorChangeUpgradesAll,
 } from "./modules/functions";
 
 // uncomment the lines below to enable PWA
@@ -68,7 +69,9 @@ const dragonsPrice = document.querySelector(".price--dragons");
 
 // miasto
 export const cityButton = document.querySelector(".section__button--city");
-const cityButtonContent = document.querySelector(".section__content--js");
+export const cityButtonContent = document.querySelector(
+  ".section__content--js"
+);
 const cityPrice = document.querySelector(".price--city");
 const cityPower = document.querySelector(".power--city");
 const militaryPower = document.querySelector(".counter--power");
@@ -98,7 +101,7 @@ const goldPerSecondContainer = document.querySelector(
 // liczniki stanu jednostek
 let peasants = 0;
 let mercenearies = 0;
-let priests = 0;
+export let priests = 0;
 let knights = 0;
 let paladins = 0;
 let dragons = 0;
@@ -132,6 +135,7 @@ goldCounterButton.addEventListener("click", () => {
   goldCounter.innerHTML = gold;
   // zmiana koloru przycisku
   colorChangeAllActive();
+  colorChangeUpgradesAll();
   // animacja monety
   coin.classList.add("section__coin--animated");
 });
@@ -492,6 +496,7 @@ cityButton.addEventListener("click", () => {
   }
 });
 
+// przyciski ulepszeń
 const upgradeAll1 = document.querySelector(".section__button--all1");
 const upgradeAll2 = document.querySelector(".section__button--all2");
 const upgradeClicker1 = document.querySelector(".section__button--clicker1");
@@ -512,6 +517,36 @@ const upgradePaladins1 = document.querySelector(".section__button--paladins1");
 const upgradePaladins2 = document.querySelector(".section__button--paladins2");
 const upgradeDragons1 = document.querySelector(".section__button--dragons1");
 const upgradeDragons2 = document.querySelector(".section__button--dragons2");
+
+// komórki ulepszeń
+export const tileAll1 = document.querySelector(".section__tile--all1");
+export const tileAll2 = document.querySelector(".section__tile--all2");
+export const tileClicker1 = document.querySelector(".section__tile--clicker1");
+export const tileClicker2 = document.querySelector(".section__tile--clicker2");
+export const tilePeasants1 = document.querySelector(
+  ".section__tile--peasants1"
+);
+export const tilePeasants2 = document.querySelector(
+  ".section__tile--peasants2"
+);
+export const tileMercenearies1 = document.querySelector(
+  ".section__tile--mercenearies1"
+);
+export const tileMercenearies2 = document.querySelector(
+  ".section__tile--mercenearies2"
+);
+export const tilePriests1 = document.querySelector(".section__tile--priests1");
+export const tilePriests2 = document.querySelector(".section__tile--priests2");
+export const tileKnights1 = document.querySelector(".section__tile--knights1");
+export const tileKnights2 = document.querySelector(".section__tile--knights2");
+export const tilePaladins1 = document.querySelector(
+  ".section__tile--paladins1"
+);
+export const tilePaladins2 = document.querySelector(
+  ".section__tile--paladins2"
+);
+export const tileDragons1 = document.querySelector(".section__tile--dragons1");
+export const tileDragons2 = document.querySelector(".section__tile--dragons2");
 
 export const upgradeTitle = document.querySelector(".section__h3--upgrades");
 export const upgradeDescription = document.querySelector(

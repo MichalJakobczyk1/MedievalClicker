@@ -16,15 +16,29 @@
     }
   }
   &__tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: var(--tile-border);
-    border-radius: 16px;
-    width: 80px;
-    height: 80px;
-    padding: 4px;
-    margin: 2px;
+    &--buy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: var(--tile-border);
+      border-radius: 16px;
+      width: 80px;
+      height: 80px;
+      padding: 4px;
+      margin: 2px;
+    }
+    &--available {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: var(--tile-border-available);
+      border-radius: 16px;
+      width: 80px;
+      height: 80px;
+      padding: 4px;
+      margin: 2px;
+      animation: buttonColor 0.25s ease-in forwards;
+    }
   }
   &__image {
     &--upgrades {
