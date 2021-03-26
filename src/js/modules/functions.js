@@ -158,6 +158,11 @@ function colorChangeUpgradesPriests(
   }
 }
 
+export function boughtUpgrade(element) {
+  element.classList.remove("section__tile--available");
+  element.classList.add("section__tile--bought");
+}
+
 export function colorChangeUpgradesAll() {
   colorChangeUpgradesLv5(gold, 75000, tileAll1, "city--lv5");
   colorChangeUpgradesLv2(

@@ -9,6 +9,7 @@ import {
   colorChangeReverseCity,
   upgradeAnimation,
   colorChangeUpgradesAll,
+  boughtUpgrade,
 } from "./modules/functions";
 
 // uncomment the lines below to enable PWA
@@ -138,6 +139,12 @@ goldCounterButton.addEventListener("click", () => {
   colorChangeUpgradesAll();
   // animacja monety
   coin.classList.add("section__coin--animated");
+  if (tileClicker1.classList.contains("section__tile--bought")) {
+    gold += peasantsQuantity;
+    goldCounter.innerHTML = gold;
+    colorChangeAllActive();
+    colorChangeUpgradesAll();
+  }
 });
 
 setInterval(goldPerSecond, 1000);
@@ -571,6 +578,14 @@ upgradeAll1.addEventListener("mouseleave", () =>
   )
 );
 
+upgradeAll1.addEventListener("click", () => {
+  if (tileAll1.classList.contains("section__tile--available")) {
+    military * 2;
+    militaryPower.innerHTML = military;
+    boughtUpgrade(tileAll1);
+  }
+});
+
 upgradeAll2.addEventListener("mouseenter", () =>
   upgradeAnimation(
     "appear 0.5s ease-in both",
@@ -589,6 +604,16 @@ upgradeAll2.addEventListener("mouseleave", () =>
   )
 );
 
+upgradeAll2.addEventListener("click", () => {
+  if (tileAll2.classList.contains("section__tile--available")) {
+    (peasantsQuantity += merceneariesQuantity += priestsQuantity += knightsQuantity += paladinsQuantity += dragonsQuantity) *
+      10 ===
+      gold;
+    goldCounter.innerHTML = gold;
+    boughtUpgrade(tileAll2);
+  }
+});
+
 upgradeClicker1.addEventListener("mouseenter", () =>
   upgradeAnimation(
     "appear 0.5s ease-in both",
@@ -606,6 +631,12 @@ upgradeClicker1.addEventListener("mouseleave", () =>
     `Clicking generates +1 gold per every peasant <span class="section__paragraph--required">Required:</span> 2500 Gold <span class="section__paragraph--required">City Lv:</span> 2`
   )
 );
+
+upgradeClicker1.addEventListener("click", () => {
+  if (tileClicker1.classList.contains("section__tile--available")) {
+    boughtUpgrade(tileClicker1);
+  }
+});
 
 upgradeClicker2.addEventListener("mouseenter", () =>
   upgradeAnimation(
